@@ -1,17 +1,17 @@
+cmake_minimum_required(3.10)
+
 project(ExternalProjects)
 
 include(ExternalProject)
 
-externalproject_add(OgreNextExternalProject
+externalproject_add(OgreExternalProject
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/ogre
-    GIT_REPOSITORY git@github.com:OGRECave/ogre-next.git
-    GIT_TAG 7006f6e427035dd178cfdb42a5b4d7c5e0d7eca0
-    GIT_SHALLOW ON
+    URL "https://github.com/OGRECave/ogre/archive/v1.12.6.zip"
+    DOWNLOAD_NO_PROGRESS ON
     CMAKE_ARGS
     -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
     -DCMAKE_PREFIX_PATH:PATH=${CMAKE_INSTALL_PREFIX}
     -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_INSTALL_PREFIX}
-    -DOGRE_BUILD_SAMPLES2:BOOL=ON
-    -DOGRE_USE_BOOST:BOOL=OFF
-    -DOGRE_CONFIG_THREAD_PROVIDER=0
-    -DOGRE_CONFIG_THREADS=0)
+    -DOGRE_BUILD_COMPONENT_JAVA:BOOL=OFF
+    -DOGRE_BUILD_COMPONENT_OVERLAY_IMGUI:BOOL=OFF
+    -DOGRE_BUILD_DEPENDENCIES:BOOL=OFF)

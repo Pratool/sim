@@ -6,7 +6,7 @@
  **/
 
 // external library headers
-#include <OGRE/OgreImage.h>
+#include <OgreImage.h>
 
 // standard template library headers
 #include <iostream>

@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.2)
 
+find_package(OGRE 1.12 REQUIRED COMPONENTS Bites Overlay RTShaderSystem)
+
 add_executable(simulator
     main.cpp)
 
 target_link_libraries(simulator
-    PUBLIC
-        OGRE::OGRE)
+    PRIVATE
+        OgreMain)
 
 install(TARGETS simulator
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+    RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
