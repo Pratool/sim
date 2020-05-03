@@ -6,8 +6,10 @@ add_executable(simulator
     main.cpp)
 
 target_link_libraries(simulator
-    PRIVATE
-        OgreMain)
+        OgreBites
+        OgreMain
+        OgreOverlay
+        OgreRTShaderSystem)
 
 install(TARGETS simulator
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
