@@ -7,22 +7,18 @@ You will never need super user privileges to build and install the external depe
 All commands provided are examples only.
 
 ## Installation
-1. Set the current working directory to the directory containing the
-`CMakeLists.txt` in this directory.  
-```bash
-cd sim/external/
-```
+1. Set the current working directory to one above the root of the repository.
 
-2. Make build and installation directories. Switch to the build directory.
+2. Make build and installation directories.
+   Switch to the build directory.
 ```bash
-mkdir build
-mkdir ../install
-cd build
+mkdir -p extbld extinst
+cd extbld
 ```
 
 3. Run the CMake configuration step.  
 ```bash
-cmake -DCMAKE_INSTALL_PREFIX=../../install ..
+cmake ../sim/external -DCMAKE_INSTALL_PREFIX=../install
 ```
 
 4. Make each of the dependency targets necessary specifying the number of maximum parallel jobs to be the number of CPU cores.

@@ -1,20 +1,17 @@
 #!/bin/bash
 # Not meant to be portable: mostly for documentation purposes.
 # Stores build artiacts one directory above the root repository directory.
-# Builds to ../sim-build
+# Builds to ../build
 # Installs to ../install
 
 (
-    set -eou pipefail
+    set -euo pipefail
     REPO_DIR="$(readlink -f $(dirname $0))"
     REPO_NAME="$(basename ${REPO_DIR})"
-    BUILD_DIR="$(dirname ${REPO_DIR})/${REPO_NAME}-build"
+    BUILD_DIR="$(dirname ${REPO_DIR})/build"
     INSTALL_DIR="$(dirname ${REPO_DIR})/install"
 
     mkdir -p ${BUILD_DIR} ${INSTALL_DIR}
-
-    # Hardcode external build path.
-    LD_LIBRARY_PATH="$(dirname ${REPO_DIR})/install/lib:${LD_LIBRARY_PATH:-}"
 
     cmake \
         -G "Ninja" \
