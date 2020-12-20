@@ -20,7 +20,6 @@
         -G "Ninja" \
         -B "${BUILD_DIR}" \
         -S "${REPO_DIR}" \
-        -DCMAKE_MODULE_PATH:STRING="$(dirname ${REPO_DIR})/install/lib/OGRE/cmake" \
         -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR}
 
     cmake --build "${BUILD_DIR}" \
